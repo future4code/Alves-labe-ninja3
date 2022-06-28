@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+
+*{
+  margin:0;
+  bottom: 0;
+  
+background: rgb(19,1,19);
+background: radial-gradient(circle, rgba(19,1,19,1) 0%, rgba(101,160,231,1) 100%);
+}
+
+/* h1 {
+  font-family: 'Lilita One', cursive;
+  font-size: 400px;
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+align-items:center;
+} */
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
