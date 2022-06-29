@@ -63,7 +63,7 @@ export class FiltersComponets extends React.Component {
         const arrayDeProdutosNome = arrayDeProdutosMaximo.filter((produto) => {
             return produto.title.toLowerCase().includes(this.state.buscaNome.toLowerCase()) || produto.description.toLowerCase().includes(this.state.buscaNome.toLowerCase())
         })
-        
+
         const arrayDeProdutosOrdenados = arrayDeProdutosNome.sort((a, b) => {
             if (this.state.ordenacao === "title") {
                 return a.title < b.title ? -1 : a.title > b.title ? 1 : 0
@@ -79,7 +79,6 @@ export class FiltersComponets extends React.Component {
     }
     
     render() {
-        
         
         return <div>
             
