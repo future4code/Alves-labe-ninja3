@@ -3,7 +3,9 @@ import React from "react";
 export default class CadastroLaks extends React.Component {
 
     render () {
+
         return (
+            
             <div>
                 <h2>Cadastre o seu serviço</h2>
                 <input>Titulo</input>
