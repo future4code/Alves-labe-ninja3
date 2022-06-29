@@ -1,4 +1,8 @@
 import React from "react";
+import TelaExibir from "./Components/Tela";
+
+
+
 class  App extends React.Component {
 
 
@@ -8,7 +12,7 @@ class  App extends React.Component {
   return (
     <div >
      <h1>labeninja</h1>
-
+      {TelaExibir}
     </div>
   );
 }
