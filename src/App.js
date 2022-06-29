@@ -1,4 +1,5 @@
 import React from "react";
+import { FiltersComponets } from "./Components/Filtro/FiltersComponets";
 import Styled from "styled-components";
 
 const Body = Styled.div `
@@ -41,6 +42,7 @@ export default class  App extends React.Component {
       <Body>
 
         <Headerzin>
+         <FiltersComponets/>
           <Titulo>LabeNinjas</Titulo>
           <CardButton>
           <button>Home</button>
