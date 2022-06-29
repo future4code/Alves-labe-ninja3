@@ -36,9 +36,9 @@ export default class App extends React.Component {
     
     switch (this.state.telaAtual){
       case "home":
-        return <HomeLaks irParaHome={this.irParaHome}/>
+        return <HomeLaks irParaCadastroLaks={this.irParaCadastroLaks}/>
       case "cadastro":
-        return <CadastroLaks irParaCadastroLaks={this.irParaCadastroLaks}/>
+        return <CadastroLaks irParaHome={this.irParaHome}/>
       
         // mais 2 case com a pagina de contratação e botao carrinho aqui antes do default
 
@@ -73,9 +73,10 @@ export default class App extends React.Component {
           </CardButton>
         </Headerzin>
 
-        <div>{this.trocarTela()}</div>
+        {this.trocarTela()}
 
       </Div>
+      
     );
 
   }
