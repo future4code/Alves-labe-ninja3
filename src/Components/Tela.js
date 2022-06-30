@@ -21,7 +21,7 @@ state = {
 
 componentDidMount() 
 {
-this.exibirDados()
+this.exibirTodos()
 }
 
 componentDidMount() 
@@ -88,12 +88,12 @@ render() {
         )
     });
 
-    console.log(this.exibirTrabalhos)
+    
     return (
 
 
         <div>
-            <h1>Exibir aqui</h1>
+            {/* <h1>Exibir aqui</h1> */}
             {this.exibirTrabalhos}
             {this.exibirTodos}
 
