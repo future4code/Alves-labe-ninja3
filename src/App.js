@@ -73,10 +73,12 @@ export default class App extends React.Component {
         <Headerzin>
          <FiltersComponets/>
           <Titulo>LabeNinjas</Titulo>
+          
            <TelaExibir/>
           <CardButton>
             <button onClick={this.irParaHome}>Home</button>
             <button>Carrinho</button>
+  
           </CardButton>
         </Headerzin>
 
