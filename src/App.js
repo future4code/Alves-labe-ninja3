@@ -1,66 +1,88 @@
 import React from "react";
-import { FiltersComponets } from "./Components/Filtro/FiltersComponets";
-import Styled from "styled-components";
 
-const Body = Styled.div `
+import styled from "styled-components";
+import CadastroLaks from "./Components/Cadastro/CadastroLaks";
+import HomeLaks from "./Components/Home/HomeLaks";
+
+import { FiltersComponets } from "./Components/Filtro/FiltersComponets";
+
+
+
+const Div = styled.div `
   margin: 0px;
 `
 
-const Headerzin = Styled.header `
+const Headerzin = styled.header `
   background-color: grey;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
 `
-const Titulo = Styled.h1 `
+const Titulo = styled.h1 `
   margin-left: 10px;
 `
 
-const CardButton = Styled.div `
+const CardButton = styled.div `
   background-color: grey;
   gap: 20px;
   
 `
-const CardInicial = Styled.div `
-  border: 1px solid black;
-  margin-top: 200px;
-  margin-left: 500px;
-  max-width: 30%;
-  min-height: 200px;
-  text-align: center;
-  
-`
+
+export default class App extends React.Component {
+
+  state = {
+    
+    telaAtual: "home"
+
+  }
+
+  trocarTela = () => {
+    
+    switch (this.state.telaAtual){
+      case "home":
+        return <HomeLaks irParaCadastroLaks={this.irParaCadastroLaks}/>
+      case "cadastro":
+        return <CadastroLaks irParaHome={this.irParaHome}/>
+      
+        // mais 2 case com a pagina de contratação e botao carrinho aqui antes do default
+
+      default:
+        return <div>Ops! Página não encontrada.</div>
+    }
+
+  }
 
 
-export default class  App extends React.Component {
+  // fazer mais 2 funções para os botoes de carrinho e contratação
+
+  irParaHome = () => {
+    this.setState({telaAtual: "home"})
+  }
+
+  irParaCadastroLaks = () => {
+    this.setState({telaAtual: "cadastro"})
+  }
 
   render() {
 
     return (
-
-      <Body>
+    
+      <Div>
 
         <Headerzin>
          <FiltersComponets/>
           <Titulo>LabeNinjas</Titulo>
           <CardButton>
-          <button>Home</button>
-          <button>Carrinho</button>
+            <button onClick={this.irParaHome}>Home</button>
+            <button>Carrinho</button>
           </CardButton>
         </Headerzin>
 
-        <CardInicial>
+        {this.trocarTela()}
 
-          <h2>Labeninjas</h2>
-          <h3>O talento certo no momento certo</h3>
-          <button>Quero ser um ninja</button>
-          <button>Quero contratar um ninja</button>
-
-        </CardInicial>
-
-      </Body>
-
+      </Div>
+      
     );
 
   }
