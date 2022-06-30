@@ -65,10 +65,10 @@ export default class App extends React.Component {
 
         <Headerzin>
           <Titulo>LabeNinjas</Titulo>
-
           <CardButton>
             <button onClick={this.irParaHome}>Home</button>
             <button>Carrinho</button>
+  
           </CardButton>
         </Headerzin>
 
