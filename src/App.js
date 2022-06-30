@@ -1,13 +1,13 @@
 import React from "react";
-
+import TelaExibir from "./Components/Tela";
 import styled from "styled-components";
 import CadastroLaks from "./Components/Cadastro/CadastroLaks";
 import HomeLaks from "./Components/Home/HomeLaks";
-
 import { FiltersComponets } from "./Components/Filtro/FiltersComponets";
 
 
 
+//Estilização 
 const Div = styled.div `
   margin: 0px;
 `
@@ -73,6 +73,7 @@ export default class App extends React.Component {
         <Headerzin>
          <FiltersComponets/>
           <Titulo>LabeNinjas</Titulo>
+           <TelaExibir/>
           <CardButton>
             <button onClick={this.irParaHome}>Home</button>
             <button>Carrinho</button>
@@ -87,6 +88,7 @@ export default class App extends React.Component {
 
   }
   
+
 }
 
 
