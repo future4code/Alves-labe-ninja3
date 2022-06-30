@@ -1,74 +1,63 @@
-import React from "react";
-import TelaExibir from "./Components/Tela";
-import styled from "styled-components";
-import CadastroLaks from "./Components/Cadastro/CadastroLaks";
-import HomeLaks from "./Components/Home/HomeLaks";
-import { FiltersComponets } from "./Components/Filtro/FiltersComponets";
+import React from 'react'
+import TelaExibir from './Components/Tela'
+import styled from 'styled-components'
+import CadastroLaks from './Components/Cadastro/CadastroLaks'
+import HomeLaks from './Components/Home/HomeLaks'
+import { FiltersComponets } from './Components/Filtro/FiltersComponets'
 
-
-
-//Estilização 
-const Div = styled.div `
+//Estilização
+const Div = styled.div`
   margin: 0px;
 `
 
-const Headerzin = styled.header `
+const Headerzin = styled.header`
   background-color: grey;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 `
-const Titulo = styled.h1 `
+const Titulo = styled.h1`
   margin-left: 10px;
 `
 
-const CardButton = styled.div `
+const CardButton = styled.div`
   background-color: grey;
   gap: 20px;
-  
 `
 
 export default class App extends React.Component {
-
   state = {
-    
-    telaAtual: "home"
-
+    telaAtual: 'home'
   }
 
   trocarTela = () => {
-    
-    switch (this.state.telaAtual){
-      case "home":
-        return <HomeLaks irParaCadastroLaks={this.irParaCadastroLaks}/>
-      case "cadastro":
-        return <CadastroLaks irParaHome={this.irParaHome}/>
-      
-        // mais 2 case com a pagina de contratação e botao carrinho aqui antes do default
+    switch (this.state.telaAtual) {
+      case 'home':
+        return <HomeLaks irParaCadastroLaks={this.irParaCadastroLaks} />
+      case 'cadastro':
+        return <CadastroLaks irParaHome={this.irParaHome} />
+
+      // mais 2 case com a pagina de contratação e botao carrinho aqui antes do default
 
       default:
         return <div>Ops! Página não encontrada.</div>
     }
-
   }
-
 
   // fazer mais 2 funções para os botoes de carrinho e contratação
 
   irParaHome = () => {
-    this.setState({telaAtual: "home"})
+    this.setState({ telaAtual: 'home' })
   }
 
   irParaCadastroLaks = () => {
-    this.setState({telaAtual: "cadastro"})
+    this.setState({ telaAtual: 'cadastro' })
   }
 
   render() {
-
     return (
-    
       <Div>
+
 
         <FiltersComponets/>
         
@@ -76,7 +65,6 @@ export default class App extends React.Component {
 
         <Headerzin>
           <Titulo>LabeNinjas</Titulo>
-<
           <CardButton>
             <button onClick={this.irParaHome}>Home</button>
             <button>Carrinho</button>
@@ -85,14 +73,7 @@ export default class App extends React.Component {
         </Headerzin>
 
         {this.trocarTela()}
-
       </Div>
-      
-    );
-
+    )
   }
-  
-
 }
-
-
