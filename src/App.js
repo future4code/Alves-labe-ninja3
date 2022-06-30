@@ -57,10 +57,15 @@ export default class App extends React.Component {
   render() {
     return (
       <Div>
+
+
+        <FiltersComponets/>
+        
+        <TelaExibir/>
+
         <Headerzin>
-          <FiltersComponets />
           <Titulo>LabeNinjas</Titulo>
-          <TelaExibir />
+
           <CardButton>
             <button onClick={this.irParaHome}>Home</button>
             <button>Carrinho</button>
