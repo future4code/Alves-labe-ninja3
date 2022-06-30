@@ -1,7 +1,12 @@
 import React from "react";
+
 import styled from "styled-components";
 import CadastroLaks from "./Components/Cadastro/CadastroLaks";
 import HomeLaks from "./Components/Home/HomeLaks";
+
+import { FiltersComponets } from "./Components/Filtro/FiltersComponets";
+
+
 
 const Div = styled.div `
   margin: 0px;
@@ -66,6 +71,7 @@ export default class App extends React.Component {
       <Div>
 
         <Headerzin>
+         <FiltersComponets/>
           <Titulo>LabeNinjas</Titulo>
           <CardButton>
             <button onClick={this.irParaHome}>Home</button>
