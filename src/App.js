@@ -48,6 +48,8 @@ export default class App extends React.Component {
       default:
         return <div>Ops! Página não encontrada.</div>
     }
+    console.log(this.state.telaAtual)
+    
   }
 
   // fazer mais 2 funções para os botoes de carrinho e contratação
@@ -100,11 +102,13 @@ export default class App extends React.Component {
           <CardButton>
             <button onClick={this.irParaHome}>Home</button>
             <button onClick={this.irParaCarrinho}>Carrinho</button>
-  
           </CardButton>
         </Headerzin>
+
        <TelaExibir/>
+
         {this.trocarTela()}
+        
       </Div>
     )
   }
