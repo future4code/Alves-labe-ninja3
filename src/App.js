@@ -81,7 +81,7 @@ export default class App extends React.Component {
             <button>Carrinho</button>
           </CardButton>
         </Headerzin>
-<TelaExibir/>
+       <TelaExibir/>
         {this.trocarTela()}
 
       </Div>
