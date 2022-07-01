@@ -5,8 +5,6 @@ import CadastroLaks from "./Components/Cadastro/CadastroLaks";
 import HomeLaks from "./Components/Home/HomeLaks";
 import { FiltersComponets } from "./Components/Filtro/FiltersComponets";
 
-
-
 //Estilização 
 const Div = styled.div `
   margin: 0px;
@@ -50,7 +48,7 @@ export default class App extends React.Component {
       default:
         return <div>Ops! Página não encontrada.</div>
     }
-
+    console.log(this.state.telaAtual)
   }
 
 
@@ -81,7 +79,7 @@ export default class App extends React.Component {
             <button>Carrinho</button>
           </CardButton>
         </Headerzin>
-
+        
         {this.trocarTela()}
 
       </Div>
