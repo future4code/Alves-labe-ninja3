@@ -52,8 +52,6 @@ export default class App extends React.Component {
     
   }
 
-  // fazer mais 2 funções para os botoes de carrinho e contratação
-
   irParaHome = () => {
     this.setState({ telaAtual: 'home' })
   }
@@ -92,11 +90,8 @@ export default class App extends React.Component {
     return (
       <Div>
 
-
         <FiltersComponets/>
         
-        
-
         <Headerzin>
           <Titulo>LabeNinjas</Titulo>
           <CardButton>
