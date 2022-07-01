@@ -93,7 +93,7 @@ export default class App extends React.Component {
 
         <FiltersComponets/>
         
-        <TelaExibir/>
+        
 
         <Headerzin>
           <Titulo>LabeNinjas</Titulo>
@@ -103,7 +103,7 @@ export default class App extends React.Component {
   
           </CardButton>
         </Headerzin>
-
+       <TelaExibir/>
         {this.trocarTela()}
       </Div>
     )
