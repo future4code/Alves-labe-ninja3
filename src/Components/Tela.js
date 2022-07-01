@@ -31,7 +31,11 @@ font-weight: bold;
 `
 
 export default class TelaExibir extends React.Component {
-    state = { jobs: [] }
+
+    state = {
+      jobs: [] 
+    }
+
 
     componentDidMount() {
         this.exibirTodos()
@@ -59,32 +63,11 @@ export default class TelaExibir extends React.Component {
 
     }
 
-    //     exibirTrabalhos = (id) => {
-    //         const url1 = `https://labeninjas.herokuapp.com/jobs/${id}`
-    // const body = [
-
-    // ]
-    //         axios.get(url1, {
-    //             headers: {
-    //                 Authorization:
-    //                     "79840a71-ac32-416b-b3e2-220060bc0a97"
-    //             }
-
-    //         }).then((resposta) => {
-    //             console.log(resposta)
-    //             this.setState({})
-    //         })
-    //             .catch((erro) => {
-    //                 console.log(erro.response)
-
-    //             })
-    //     }
 
 
     render() {
         const trabalhosMap = this.state.jobs.map((jobs) => {
             return (
-
 
 
 
@@ -97,7 +80,7 @@ export default class TelaExibir extends React.Component {
                     <BottonCard >Adicionar ao Carrinho</BottonCard>
             </Card>
 
-
+    
 
 
             )

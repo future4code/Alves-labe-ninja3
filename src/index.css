@@ -1,4 +1,7 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Roboto:wght@100&family=Zilla+Slab:wght@300&display=swap');
+=======
+
 
 *{
   margin:0;
@@ -8,6 +11,7 @@
 
 h1 {
   font-family: 'Zilla Slab', serif;
+
 
   font-size: 40px;
   display: flex;
@@ -27,12 +31,28 @@ font-weight: bold;
 font-size: medium;
 
 
+p {
+  color: #08D9D6;
+  
 }
+
+
 
 body{
   color: #08D9D6;
   font-size: large;
+  }
   
+
+button {
+  color: #FF2E63;
+  background-color:#252A34 ;
+  font-family: 'Arvo', serif;
+border: 2px solid #FF2E63;
+  margin-left: 30px;
+   padding: 20px;
+   font-weight: 50px;
+
 }
 
 code {
