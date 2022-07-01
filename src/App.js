@@ -91,7 +91,7 @@ export default class App extends React.Component {
       <Div>
 
 
-        <FiltersComponets/>
+        
         
         
 
