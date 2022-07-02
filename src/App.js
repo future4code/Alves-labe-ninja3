@@ -62,8 +62,6 @@ export default class App extends React.Component {
             irParaPaginaTela={this.irParaPaginaTela}
           />
         )
-      // mais 1 case com a pagina de contratação aqui antes do default
-      // Adicionar como props this.irParaPaginaDetalhes no case da Melissa
 
       default:
         return <div>Ops! Página não encontrada.</div>
@@ -78,16 +76,6 @@ export default class App extends React.Component {
   //Dentro da tela atual abaixo vai o nome da tela da melissa
   irParaPaginaTela = () => {
     this.setState({ telaAtual: '', botaoDetalhes: '' })
-
-        case 'carrinho': 
-        return <Carrinho calculaValorTotal={this.calculaValorTotal} finalizarCompra={this.finalizarCompra}  excluirItemCarrinho ={this.excluirItemCarrinho}/>
-        case "contratar" :
-          return <TelaExibir/>
-      // mais 1 case com a pagina de contratação aqui antes do default
-      default:
-        return <div>Ops! Página não encontrada.</div>
-      }
-      
     
 
   }
