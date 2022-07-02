@@ -1,32 +1,36 @@
+import axios from 'axios'
 import React from 'react'
 import styled from 'styled-components'
 
 //Estilização
 
-const Headerzin = styled.header`
-  background-color: grey;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+const Detalhes = styled.div`
   text-align: center;
+  justify-content: center;
 `
-const Detalhes = styled.div``
 
 export default class VerDetalhes extends React.Component {
+  state = {
+    servico: {}
+  }
+
+  componentDidMount() {
+    this.detalhesServico()
+  }
+  detalhesServico = () => {
+    axios
+      .get(this.props.url)
+      .then(res => {
+        this.setState({ servico: res.data })
+      })
+      .catch(err => console.log(err.response))
+  }
+
   render() {
     return (
       <div>
-        <Headerzin>
-          <button> Home </button>
-          <button> Carrinho</button>
-        </Headerzin>
         <Detalhes>
-          <h2>Título:{this.props.tilulo}</h2>
-          <p>Descrição:{this.props.descrição}</p>
-          <p>Preço:{this.props.preco}</p>
-          <p>Prazo:{this.props.prazo}</p>
-          <p>Método de Pagamento:{this.props.pagamento}</p>
-          <button>Voltar para a lista</button>
+          <p>{this.props.jobs.title}</p>
         </Detalhes>
       </div>
     )
