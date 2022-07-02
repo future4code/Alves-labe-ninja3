@@ -1,26 +1,52 @@
 import React from "react";
 import { Filters } from "./Filters";
+import styled from "styled-components";
 
+const Card = styled.div`
+border: 1px double #FF2E63;
+display:flex;
+justify-content:column;
+width:190px;
+font-family: 'Zilla Slab', serif;
+padding:5px;
+box-shadow: 10px 10px 10px 5px #696969;
+margin:50px;
+flex-wrap: wrap;
+`
+
+const DivBotton = styled.div` 
+display:flex;
+flex-direction:column;
+`
+
+const BottonCard = styled.button`
+border: 3px solid #FF2E63;
+margin:7px;
+display:flex;
+justify-content:center;
+font-family: 'Zilla Slab', serif;
+padding:5px ;
+background-color:#FF2E63;
+color: #252A34;
+font-weight: bold;
+`
+
+const AllCards = styled.main`
+display:inline-flex;
+flex-direction: row;
+flex-wrap: wrap;
+`
 export class FiltersComponets extends React.Component {
     state = {
         valorMinimo: "",
         valorMaximo: "",
         buscaNome: "",
-        ordenacao: "priceDR",
-        arrayProdutos: [{
-            title: "Cortar a grama",
-            description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
-            price: 40,
-            paymentMethods: ["PayPal", "boleto"],
-            dueDate: "2021-12-30"
-        },
-        {
-            title: "Podar a grama",
-            description: "limpeza65.",
-            price: 7,
-            paymentMethods: ["PayPal", "boleto"],
-            dueDate: "2021-09-30"
-        }],
+        ordenacao: "title5454",
+        arrayProdutos:[],
+    }
+    
+    componentDidMount() {
+        this.props.exibirTodos()
     }
     
     pegaValorMinimo = (e) => {
@@ -48,7 +74,9 @@ export class FiltersComponets extends React.Component {
     }
     
     filtraTrabalho = () => {
-        const arrayDeProdutosMinimo = this.state.arrayProdutos.filter((produto) => {
+    
+    
+        const arrayDeProdutosMinimo = this.props.Arraytrabalho.filter((produto) => {
             if (this.state.valorMinimo) {
                 return produto.price >= this.state.valorMinimo
             } else { return produto }
@@ -63,7 +91,7 @@ export class FiltersComponets extends React.Component {
         const arrayDeProdutosNome = arrayDeProdutosMaximo.filter((produto) => {
             return produto.title.toLowerCase().includes(this.state.buscaNome.toLowerCase()) || produto.description.toLowerCase().includes(this.state.buscaNome.toLowerCase())
         })
-
+        
         const arrayDeProdutosOrdenados = arrayDeProdutosNome.sort((a, b) => {
             if (this.state.ordenacao === "title") {
                 return a.title < b.title ? -1 : a.title > b.title ? 1 : 0
@@ -75,13 +103,29 @@ export class FiltersComponets extends React.Component {
                 return a.dueDate < b.dueDate ? -1 : a.dueDate > b.dueDate ? 1 : 0
             }
         })
-        return arrayDeProdutosOrdenados
+        
+        const trabalhosMap = arrayDeProdutosOrdenados.map((jobs) => {
+            return   <AllCards>
+            <Card key={jobs.id}><h2>{jobs.title}</h2><br />
+                <p>&#5125; {jobs.description}</p><br />
+                <p>&#5125;Preço: R${jobs.price}</p><br />
+                <p>Formas de Pagamento:{jobs.paymentMethods.map((item) => { return <div>{item}</div> })}</p><br />
+                <p>&#5125;{jobs.dueDate.split('T')[0]}</p><br />
+                <DivBotton>
+                <BottonCard >Ver Detalhes</BottonCard>
+                <BottonCard >Adicionar ao Carrinho</BottonCard>
+                </DivBotton>
+            </Card>
+            
+        </AllCards>
+        });
+        
+        return trabalhosMap
     }
     
     render() {
         
         return <div>
-            
             <Filters
                 valorMinimo={this.state.valorMinimo}
                 valorMaximo={this.state.valorMaximo}
@@ -91,7 +135,8 @@ export class FiltersComponets extends React.Component {
                 pegaNome={this.pegaNome}
                 pegaOrdem={this.pegaOrdem}
             />
+            {this.filtraTrabalho()}
+            
         </div>
-        
     }
 }
