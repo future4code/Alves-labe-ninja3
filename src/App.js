@@ -19,12 +19,10 @@ const Headerzin = styled.header`
 const Titulo = styled.h1`
   margin-left: 10px;
 `
-
 const CardButton = styled.div`
   background-color: grey;
   gap: 20px;
 `
-
 export default class App extends React.Component {
   state = {
     telaAtual: 'home',

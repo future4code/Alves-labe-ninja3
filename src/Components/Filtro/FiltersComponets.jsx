@@ -125,7 +125,7 @@ export class FiltersComponets extends React.Component {
                 <BottonCard >Adicionar ao Carrinho</BottonCard>
                 </DivBotton>
             </Card>
-
+            
         </AllCards>
         });
         console.log(arrayDeProdutosNome)
