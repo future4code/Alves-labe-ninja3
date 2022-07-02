@@ -3,16 +3,23 @@ import styled from 'styled-components'
 
 //Estilização
 
-const Headerzin = styled.header`
-  background-color: grey;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+const Detalhes = styled.div`
   text-align: center;
+  justify-content: center;
 `
-const Detalhes = styled.div``
 
 export default class VerDetalhes extends React.Component {
+  state = {
+    tela: 'detalhe'
+  }
+  mudaTela = () => {
+    if (this.state.tela === 'detalhe') {
+      this.setState({ tela: 'lista' })
+    } else {
+      this.setState({ tela: 'detalhe' })
+    }
+  }
+
   render() {
     return (
       <div>
@@ -26,7 +33,7 @@ export default class VerDetalhes extends React.Component {
           <p>Preço:{this.props.preco}</p>
           <p>Prazo:{this.props.prazo}</p>
           <p>Método de Pagamento:{this.props.pagamento}</p>
-          <button>Voltar para a lista</button>
+          <button onClick={this.mudaTela}>Voltar para a lista</button>
         </Detalhes>
       </div>
     )

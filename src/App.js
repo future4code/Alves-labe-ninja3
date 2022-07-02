@@ -3,7 +3,6 @@ import TelaExibir from './Components/Tela'
 import styled from 'styled-components'
 import CadastroLaks from './Components/Cadastro/CadastroLaks'
 import HomeLaks from './Components/Home/HomeLaks'
-import { FiltersComponets } from './Components/Filtro/FiltersComponets'
 import { Carrinho } from './Components/Carrinho/Carrinho'
 
 //Estilização
@@ -12,18 +11,20 @@ const Div = styled.div`
 `
 
 const Headerzin = styled.header`
-  background-color: grey;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+ border-bottom:dotted;
 `
 const Titulo = styled.h1`
   margin-left: 10px;
+
 `
 
 const CardButton = styled.div`
-  background-color: grey;
   gap: 20px;
+  margin-right:50px;
 `
 
 export default class App extends React.Component {
@@ -90,7 +91,6 @@ export default class App extends React.Component {
     return (
       <Div>
 
-
         
         <Headerzin>
           <Titulo>LabeNinjas</Titulo>
@@ -99,7 +99,7 @@ export default class App extends React.Component {
             <button onClick={this.irParaCarrinho}>Carrinho</button>
           </CardButton>
         </Headerzin>
-
+ 
        <TelaExibir/>
 
         {this.trocarTela()}
