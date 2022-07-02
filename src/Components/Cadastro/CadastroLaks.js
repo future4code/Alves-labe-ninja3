@@ -31,3 +31,4 @@ export default class CadastroLaks extends React.Component {
     )
   }
 }
+
