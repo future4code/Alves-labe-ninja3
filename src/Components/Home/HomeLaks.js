@@ -26,26 +26,18 @@ const BotaoSerNinja = styled.button `
 const BotaoContratarNinja = styled.button `
     margin-top: 20px;
 `
-
 export default class HomeLaks extends React.Component {
-
+    
     render () {
-
         return (
-
             <Body>
-
                 <CardInicial>
-
                 <H2>Labeninjas</H2>
                 <H3>O talento certo no momento certo</H3>
-                <BotaoSerNinja onClick={this.props.irParaCadastroLaks}>Quero ser um ninja</BotaoSerNinja>
-
+                <BotaoSerNinja onClick={()=>this.props.irParaCadastroLaks()}>Quero ser um ninja</BotaoSerNinja>
                 {/* esse tem que onclickear a pagina de contratação de serviço */}
-                <BotaoContratarNinja>Quero contratar um ninja</BotaoContratarNinja>
-  
+                <BotaoContratarNinja onClick={()=>this.props.irParaCards()}>Quero contratar um ninja</BotaoContratarNinja>
                 </CardInicial>
-
             </Body>
         )
     }
