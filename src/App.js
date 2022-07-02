@@ -21,12 +21,10 @@ const Titulo = styled.h1`
   margin-left: 10px;
 
 `
-
 const CardButton = styled.div`
   gap: 20px;
   margin-right:50px;
 `
-
 export default class App extends React.Component {
   state = {
     telaAtual: 'home',
