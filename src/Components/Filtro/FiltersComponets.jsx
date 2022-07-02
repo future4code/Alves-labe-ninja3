@@ -12,16 +12,12 @@ padding:5px;
 box-shadow: 10px 10px 10px 5px #696969;
 margin:50px;
 flex-wrap: wrap;
-
-
 `
-
 
 const DivBotton = styled.div` 
 display:flex;
 flex-direction:column;
-
- `
+`
 
 const BottonCard = styled.button`
 border: 3px solid #FF2E63;
@@ -33,22 +29,19 @@ padding:5px ;
 background-color:#FF2E63;
 color: #252A34;
 font-weight: bold;
-
 `
+
 const AllCards = styled.main`
 display:inline-flex;
 flex-direction: row;
 flex-wrap: wrap;
-
 `
-
-
 export class FiltersComponets extends React.Component {
     state = {
         valorMinimo: "",
         valorMaximo: "",
         buscaNome: "",
-        ordenacao: "priceDR",
+        ordenacao: "title5454",
         arrayProdutos:[],
     }
     
@@ -113,8 +106,6 @@ export class FiltersComponets extends React.Component {
         
         const trabalhosMap = arrayDeProdutosOrdenados.map((jobs) => {
             return   <AllCards>
-
-
             <Card key={jobs.id}><h2>{jobs.title}</h2><br />
                 <p>&#5125; {jobs.description}</p><br />
                 <p>&#5125;Preço: R${jobs.price}</p><br />
@@ -128,7 +119,7 @@ export class FiltersComponets extends React.Component {
             
         </AllCards>
         });
-        console.log(arrayDeProdutosNome)
+        
         return trabalhosMap
     }
     

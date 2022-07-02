@@ -61,30 +61,28 @@ padding-top: 5px;
 
 `
 
-
 export default class HomeLaks extends React.Component {
-
+    
     render () {
-
         return (
-
             <Body>
+
             <h1> Venda mais com a gente!</h1>
             <Texto> Labeninja Marketplace é um shopping virtual onde você pode aumentar as suas vendas. E por sermos uma das melhores empresas de tecnologia aplicada ao varejo do Brasil, reconhecida como uma plataforma digital com pontos físicos e calor humano, o nosso e-commerce está cada vez mais integrado às lojas cadastradas em todo país. O Marketplace é uma excelente oportunidade de negócio para lojistas de todos os tamanhos criarem o seu canal de vendas digital!</Texto>
             <BoxCard>
+
                 <CardInicial>
                 <H2>Labeninjas</H2>
                 <H3>O talento certo no momento certo</H3>
-                <BotaoSerNinja onClick={this.props.irParaCadastroLaks}>Quero ser um ninja</BotaoSerNinja>
-
+                <BotaoSerNinja onClick={()=>this.props.irParaCadastroLaks()}>Quero ser um ninja</BotaoSerNinja>
                 {/* esse tem que onclickear a pagina de contratação de serviço */}
-                <BotaoContratarNinja>Quero contratar um ninja</BotaoContratarNinja>
-  
+                <BotaoContratarNinja onClick={()=>this.props.irParaCards()}>Quero contratar um ninja</BotaoContratarNinja>      
                 </CardInicial></BoxCard>
 <Footer>
     <h3>Labeninja.com</h3>
     <p>&copy;Labenija Marketplace - Todos os direitos reservados</p>
 </Footer>
+
             </Body>
         )
     }

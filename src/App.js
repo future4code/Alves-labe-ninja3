@@ -9,13 +9,11 @@ import { Carrinho } from './Components/Carrinho/Carrinho'
 const Div = styled.div`
   margin: 0px;
 `
-
 const Headerzin = styled.header`
-
   display: flex;
   align-items: center;
   justify-content: space-between;
- border-bottom:dotted;
+  border-bottom:dotted;
 `
 const Titulo = styled.h1`
   margin-left: 10px;
@@ -30,24 +28,23 @@ export default class App extends React.Component {
     telaAtual: 'home',
     carrinho: [],
     valorTotalCarrinho:'',
-
   }
 
   trocarTela = () => {
     switch (this.state.telaAtual) {
       case 'home':
-        return <HomeLaks irParaCadastroLaks={this.irParaCadastroLaks} />
+        return <HomeLaks irParaCadastroLaks={this.irParaCadastroLaks}  irParaCards={this. irParaCards} />
       case 'cadastro':
         return <CadastroLaks irParaHome={this.irParaHome} />
         case 'carrinho': 
         return <Carrinho calculaValorTotal={this.calculaValorTotal} finalizarCompra={this.finalizarCompra}  excluirItemCarrinho ={this.excluirItemCarrinho}/>
-
+        case "contratar" :
+          return <TelaExibir/>
       // mais 1 case com a pagina de contratação aqui antes do default
-
       default:
         return <div>Ops! Página não encontrada.</div>
-    }
-    console.log(this.state.telaAtual)
+      }
+      
     
   }
 
@@ -57,12 +54,19 @@ export default class App extends React.Component {
 
   irParaCadastroLaks = () => {
     this.setState({ telaAtual: 'cadastro' })
+    
   }
 
  //Funções do carrinho:
 
   irParaCarrinho = ()=>{
     this.setState({telaAtual: 'carrinho'})
+  } 
+
+  irParaCards=()=>{
+    this.setState({
+      telaAtual: 'contratar'
+    })
   }
 
   calculaValorTotal = ()=>{
@@ -86,10 +90,9 @@ export default class App extends React.Component {
 }
 
   render() {
+    console.log(this.state.telaAtual)
     return (
       <Div>
-
-        
         <Headerzin>
           <Titulo>LabeNinjas</Titulo>
           <CardButton>
@@ -97,9 +100,6 @@ export default class App extends React.Component {
             <button onClick={this.irParaCarrinho}>Carrinho</button>
           </CardButton>
         </Headerzin>
- 
-       <TelaExibir/>
-
         {this.trocarTela()}
         
       </Div>
