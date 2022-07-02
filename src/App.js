@@ -3,7 +3,6 @@ import TelaExibir from './Components/Tela'
 import styled from 'styled-components'
 import CadastroLaks from './Components/Cadastro/CadastroLaks'
 import HomeLaks from './Components/Home/HomeLaks'
-import { FiltersComponets } from './Components/Filtro/FiltersComponets'
 import { Carrinho } from './Components/Carrinho/Carrinho'
 
 //Estilização

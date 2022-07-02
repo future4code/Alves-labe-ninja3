@@ -5,15 +5,23 @@ import styled from "styled-components";
 const Card = styled.div`
 border: 1px double #FF2E63;
 display:flex;
-flex-direction: column;
-justify-content:center;
-width:200px;
+justify-content:column;
+width:190px;
 font-family: 'Zilla Slab', serif;
-padding:10px;
+padding:5px;
 box-shadow: 10px 10px 10px 5px #696969;
 margin:50px;
+flex-wrap: wrap;
+
 
 `
+
+
+const DivBotton = styled.div` 
+display:flex;
+flex-direction:column;
+
+ `
 
 const BottonCard = styled.button`
 border: 3px solid #FF2E63;
@@ -21,10 +29,17 @@ margin:7px;
 display:flex;
 justify-content:center;
 font-family: 'Zilla Slab', serif;
-padding:2px;
+padding:5px ;
 background-color:#FF2E63;
 color: #252A34;
 font-weight: bold;
+
+`
+const AllCards = styled.main`
+display:inline-flex;
+flex-direction: row;
+flex-wrap: wrap;
+
 `
 
 
@@ -97,17 +112,21 @@ export class FiltersComponets extends React.Component {
         })
         
         const trabalhosMap = arrayDeProdutosOrdenados.map((jobs) => {
-            return <Card key={jobs.id}>
-                <h2>{jobs.title}</h2><br />
+            return   <AllCards>
+
+
+            <Card key={jobs.id}><h2>{jobs.title}</h2><br />
                 <p>&#5125; {jobs.description}</p><br />
-                <p>R${jobs.price}</p><br />
-                <p>&#5125;{jobs.paymentMethods.map((item) => {
-                    return <div>{item}</div>
-                })}</p><br />
+                <p>&#5125;Preço: R${jobs.price}</p><br />
+                <p>Formas de Pagamento:{jobs.paymentMethods.map((item) => { return <div>{item}</div> })}</p><br />
                 <p>&#5125;{jobs.dueDate.split('T')[0]}</p><br />
+                <DivBotton>
                 <BottonCard >Ver Detalhes</BottonCard>
                 <BottonCard >Adicionar ao Carrinho</BottonCard>
+                </DivBotton>
             </Card>
+
+        </AllCards>
         });
         console.log(arrayDeProdutosNome)
         return trabalhosMap
