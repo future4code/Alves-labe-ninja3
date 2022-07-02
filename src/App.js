@@ -1,5 +1,5 @@
 import React from 'react'
-import TelaExibir from './Components/Tela'
+// import TelaExibir from './Components/Tela'
 import styled from 'styled-components'
 import CadastroLaks from './Components/Cadastro/CadastroLaks'
 import HomeLaks from './Components/Home/HomeLaks'
@@ -100,7 +100,7 @@ export default class App extends React.Component {
           </CardButton>
         </Headerzin>
 
-       <TelaExibir/>
+       {/* <TelaExibir/> */}
 
         {this.trocarTela()}
         
