@@ -24,11 +24,14 @@ export default class TelaExibir extends React.Component {
     }
     
     render() {
+        
         const arraydetrabalhor = this.state.jobs
         return (
+            
             <FiltersComponets
                 Arraytrabalho={arraydetrabalhor}
-                exibirTodos={this.exibirTodos} />
+                exibirTodos={this.exibirTodos} 
+                irParaPaginaDetalhes={this.props.irParaPaginaDetalhes}/>
         )
     }
 }

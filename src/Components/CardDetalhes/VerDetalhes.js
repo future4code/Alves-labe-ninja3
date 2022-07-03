@@ -11,28 +11,50 @@ const Detalhes = styled.div`
 
 export default class VerDetalhes extends React.Component {
   state = {
-    servico: {}
+    title: '',
+    description: '',
+    price: '',
+    payment: [],
+    date: '',
+    taken: false
   }
 
-  componentDidMount() {
-    this.detalhesServico()
-  }
-  detalhesServico = () => {
+  cardDetalhes = () => {
+    const id = this.props.id
+    const url = `https://labeninjas.herokuapp.com/jobs/:${id}`
     axios
-      .get(this.props.url)
-      .then(res => {
-        this.setState({ servico: res.data })
+      .get(url, {
+        headers: {
+          Authorization: '79840a71-ac32-416b-b3e2-220060bc0a97'
+        }
       })
-      .catch(err => console.log(err.response))
+      .then(resposta => {
+        this.setState({
+          title: res.data.title,
+          description: res.data.description,
+          price: res.data.price,
+          payment: res.data.paymentMethods,
+          date: res.data.dueDate,
+          taken: res.data.taken
+        })
+      })
+      .catch(erro => {
+        console.log(erro.response)
+      })
   }
+  componentDidMount() {
+    this.cardDetalhes()
+  }
+  // separaCard (this.setState({
+  //   title: res.data.title,
+  //   description: res.data.description,
+  //   price: res.data.price,
+  //   payment: res.data.paymentMethods,
+  //   date: res.data.dueDate,
+  //   taken: res.data.taken
+  // }))
 
   render() {
-    return (
-      <div>
-        <Detalhes>
-          <p>{this.props.jobs.title}</p>
-        </Detalhes>
-      </div>
-    )
+    return <div>{this.cardDetalhes}</div>
   }
 }

@@ -15,9 +15,6 @@ const Headerzin = styled.header`
   justify-content: space-between;
 
   border-bottom: dotted;
-
- 
-
 `
 const Titulo = styled.h1`
   margin-left: 10px;
@@ -30,18 +27,19 @@ export default class App extends React.Component {
   state = {
     telaAtual: 'home',
     carrinho: [],
-
     valorTotalCarrinho: '',
     botaoDetalhes: ''
-
-
-
   }
 
   trocarTela = () => {
     switch (this.state.telaAtual) {
       case 'home':
-        return <HomeLaks irParaCadastroLaks={this.irParaCadastroLaks}  irParaCards={this. irParaCards} />
+        return (
+          <HomeLaks
+            irParaCadastroLaks={this.irParaCadastroLaks}
+            irParaCards={this.irParaCards}
+          />
+        )
       case 'cadastro':
         return <CadastroLaks irParaHome={this.irParaHome} />
 
@@ -53,8 +51,8 @@ export default class App extends React.Component {
             excluirItemCarrinho={this.excluirItemCarrinho}
           />
         )
-      case "contratar" :
-          return <TelaExibir/>
+      case 'contratar':
+        return <TelaExibir irParaPaginaDetalhes={this.irParaPaginaDetalhes} />
       case 'detalhes':
         return (
           <VerDetalhes
@@ -66,17 +64,16 @@ export default class App extends React.Component {
       default:
         return <div>Ops! Página não encontrada.</div>
     }
-    console.log(this.state.telaAtual)
   }
 
   irParaPaginaDetalhes = id => {
     this.setState({ telaAtual: 'detalhes', botaoDetalhes: id })
+    console.log(id)
   }
 
   //Dentro da tela atual abaixo vai o nome da tela da melissa
   irParaPaginaTela = () => {
     this.setState({ telaAtual: '', botaoDetalhes: '' })
-    
 
   }
 
@@ -86,21 +83,18 @@ export default class App extends React.Component {
 
   irParaCadastroLaks = () => {
     this.setState({ telaAtual: 'cadastro' })
-    
   }
 
   //Funções do carrinho:
 
+  irParaCarrinho = () => {
+    this.setState({ telaAtual: 'carrinho' })
+  }
 
-  irParaCarrinho = ()=>{
-    this.setState({telaAtual: 'carrinho'})
-  } 
-
-  irParaCards=()=>{
+  irParaCards = () => {
     this.setState({
       telaAtual: 'contratar'
     })
-
   }
 
   calculaValorTotal = () => {
