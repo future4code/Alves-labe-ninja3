@@ -85,7 +85,7 @@ export default class HomeLaks extends React.Component {
     render() {
         return (
             <Body>
-                <img src="./Components/imagens/ninja.png"></img>
+                {/* <img src="./Components/imagens/ninja.png"></img> */}
                 <h1> Venda mais com a gente!</h1>
                 <Texto> Labeninja Marketplace é um shopping virtual onde você pode aumentar as suas vendas. E por sermos uma das melhores empresas de tecnologia aplicada ao varejo do Brasil, reconhecida como uma plataforma digital com pontos físicos e calor humano, o nosso e-commerce está cada vez mais integrado às lojas cadastradas em todo país. O Marketplace é uma excelente oportunidade de negócio para lojistas de todos os tamanhos criarem o seu canal de vendas digital!</Texto>
                 <BoxCard>

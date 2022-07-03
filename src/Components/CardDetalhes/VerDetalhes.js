@@ -28,17 +28,17 @@ export default class VerDetalhes extends React.Component {
           Authorization: '79840a71-ac32-416b-b3e2-220060bc0a97'
         }
       })
-      .then(resposta => {
+      .then((resposta) => {
         this.setState({
-          title: res.data.title,
-          description: res.data.description,
-          price: res.data.price,
-          payment: res.data.paymentMethods,
-          date: res.data.dueDate,
-          taken: res.data.taken
+          title: resposta.data.title,
+          description: resposta.data.description,
+          price: resposta.data.price,
+          payment: resposta.data.paymentMethods,
+          date: resposta.data.dueDate,
+          taken: resposta.data.taken
         })
       })
-      .catch(erro => {
+      .catch((erro) => {
         console.log(erro.response)
       })
   }
