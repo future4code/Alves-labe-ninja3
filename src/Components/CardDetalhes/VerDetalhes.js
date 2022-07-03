@@ -51,19 +51,9 @@ export default class VerDetalhes extends React.Component {
         })
       )
       .catch(err => console.log(err.response))
-
   }
-  // separaCard (this.setState({
-  //   title: res.data.title,
-  //   description: res.data.description,
-  //   price: res.data.price,
-  //   payment: res.data.paymentMethods,
-  //   date: res.data.dueDate,
-  //   taken: res.data.taken
-  // }))
 
   render() {
-
     return (
       <Detalhes>
         <Titulo>{this.state.title}</Titulo>
@@ -77,6 +67,5 @@ export default class VerDetalhes extends React.Component {
         <Itens>{this.state.date.split('T')[0]}</Itens>
       </Detalhes>
     )
-
   }
 }

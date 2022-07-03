@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
 const Body = styled.div`
   margin: 0px;
 `
 
 const CardInicial = styled.div`
-
   border: 1px solid #08d9d6;
   margin-top: 100px;
   margin-bottom: 200px;
@@ -27,28 +25,6 @@ const BoxCard = styled.div`
   flex-wrap: wrap;
 `
 
-
-
-const H2 = styled.h2`
-    margin-top: 20px;
-`
-const H3 = styled.h3`
-    margin-top: 10px;
-`
-const BotaoSerNinja = styled.button`
-    margin-top: 20px;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    margin-left:0%;
-`
-const BotaoContratarNinja = styled.button`
-    margin-top: 20px;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    margin-left:0;
-
 const H2 = styled.h2`
   margin-top: 20px;
 `
@@ -57,6 +33,11 @@ const H3 = styled.h3`
 `
 const BotaoSerNinja = styled.button`
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0%;
+  margin-top: 20px;
   transition: all 0.5s;
 
   :hover {
@@ -65,13 +46,11 @@ const BotaoSerNinja = styled.button`
 `
 const BotaoContratarNinja = styled.button`
   margin-top: 20px;
-  transition: all 0.5s;
-
-  :hover {
-    border-radius: 30%;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
 `
-
 
 const Texto = styled.p`
   font-family: 'Arvo', serif;
@@ -81,18 +60,16 @@ const Texto = styled.p`
   margin-top: 80px;
 `
 
-const Imagem = styled.img `
-display:flex;
-justify-content: center;
-align-items:center;
-flex-wrap:wrap;
-margin-top:100px;
-margin-bottom:50px;
-
+const Imagem = styled.img`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  margin-bottom: 50px;
 `
 
 export default class HomeLaks extends React.Component {
-
   render() {
     return (
       <Body>
@@ -124,4 +101,3 @@ export default class HomeLaks extends React.Component {
     )
   }
 }
-
