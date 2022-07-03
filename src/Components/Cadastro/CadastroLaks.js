@@ -13,41 +13,42 @@ const CardCadastro = styled.div`
 export default class CadastroLaks extends React.Component {
 
   state = {
-    titulo: " ",
-    descrição: " ",
-    preço: " ",
-    metódoDePagamento: [
-      "Dinheiro",
-      "cartãoCrédito",
-      "cartãoDébito",
-      "pix"
-    ]
+    title:"",
+    description:"",
+    price: Number(""),
+    paymentMethods:[],
+    dueDate:""
   }
 
   handleTitulo = (event) => {
-    this.setState({titulo: event.target.value})
+    this.setState({title: event.target.value})
   }
 
   handleDescrição = (event) => {
-    this.setState({descrição: event.target.value})
+    this.setState({description: event.target.value})
   }
 
   handlePreço = (event) => {
-    this.setState({preço: event.target.value})
+    this.setState({price: Number(event.target.value)})
   }
 
   handleMetodo = (event) => {
-    this.setState({metódoDePagamento: event.target.value})
+    this.setState({paymentMethods: [...this.state.paymentMethods,event.target.value]})
   }
 
-  cadastrarNinja = (event) => {
+  handleData = (event) => {
+    this.setState({dueDate: event.target.value})
+  }
+
+  cadastrarNinja = () => {
 
     const url2 = "https://labeninjas.herokuapp.com/jobs"
     const body = {
-      titulo: this.state.titulo,
-      descrição: this.state.descrição,
-      preço: this.state.preço,
-      metódoDePagamento: this.state.metódoDePagamento
+      title: this.state.title,
+      description: this.state.description,
+      price: this.state.price,
+      paymentMethods: this.state.paymentMethods,
+      dueDate: this.state.dueDate
     }
 
     axios.post(url2, body, {
@@ -57,37 +58,39 @@ export default class CadastroLaks extends React.Component {
     }).then((resposta) => {
       alert("Parabéns! Agora você é um ninja!")
       this.setState({
-        titulo: " ", descrição: " ", preço: " ", metódoDePagamento: []
+        titulo: "", descrição: "", preço: "", metódoDePagamento: [],dueDate:""
       })
+      
 
     }).catch((erro) => {
       alert("Ops! Algo deu errado!")
       alert(erro.response.data.message)
+      console.log(erro)
+      console.log(body)
     })
-
+    
   }
 
   render() {
-
+console.log(this.state.dueDate)
     return (
 
       <CardCadastro>
         
         <h2>Cadastre o seu serviço</h2>
 
-        <input placeholder="Título" type="text"/>
-        <input placeholder="Descrição do Serviço" type="text"/>
-        <input placeholder="Preço" type="text"/>
+        <input placeholder="Título" type="text" onChange={this.handleTitulo} value={this.state.title}/>
+        <input placeholder="Descrição do Serviço" type="text" onChange={this.handleDescrição} value={this.state.description}/>
+        <input placeholder="Preço" type="number" onChange={this.handlePreço} value={(this.state.price)}/>
 
-        <select name="metodo">
+        <select name="metodo" onChange={this.handleMetodo} multiple >
           <option value="dinheiro">Dinheiro</option>
           <option value="cartaoDebito">Cartão de Débito</option>
           <option value="cartaoCredito">Cartão de Crédito</option>
           <option value="pix">Pix</option>
         </select>
 
-        <input placeholder="00/00/0000" type="data"/>
-
+        <input  type="date" onChange={this.handleData} id="data" value={this.state.dueDate}/>
         <button onClick={this.cadastrarNinja}>Cadastrar Serviço</button>
 
       </CardCadastro>
