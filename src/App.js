@@ -1,5 +1,5 @@
 import React from 'react'
-import TelaExibir from './Components/Tela'
+// import TelaExibir from './Components/Tela'
 import styled from 'styled-components'
 import CadastroLaks from './Components/Cadastro/CadastroLaks'
 import HomeLaks from './Components/Home/HomeLaks'
@@ -88,6 +88,7 @@ export default class App extends React.Component {
   //Dentro da tela atual abaixo vai o nome da tela da melissa
   irParaPaginaTela = () => {
     this.setState({ telaAtual: '', botaoDetalhes: '' })
+
   }
 
   irParaHome = () => {
@@ -142,6 +143,9 @@ export default class App extends React.Component {
             <button onClick={this.irParaCarrinho}>Carrinho</button>
           </CardButton>
         </Headerzin>
+
+       {/* <TelaExibir/> */}
+
         {this.trocarTela()}
         <Footer>
           <h3>Labeninja.com</h3>
