@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
 const Body = styled.div`
   margin: 0px;
 `
@@ -17,22 +18,21 @@ const CardInicial = styled.div`
   padding: 30px;
   justify-content: center;
 `
-
 const BoxCard = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 `
-
 const BotaoSerNinja = styled.button`
     margin-top: 20px;
     display:flex;
     justify-content: center;
     align-items:center;
     margin-left:0%;
-`
+  
 
+`
 const BotaoContratarNinja = styled.button`
     margin-top: 20px;
     display:flex;
@@ -45,33 +45,9 @@ const BotaoContratarNinja = styled.button`
 const H2 = styled.h2`
   margin-top: 20px;
 `
-
 const H3 = styled.h3`
   margin-top: 10px;
 
-
-
-
-`
-const BotaoSerNinja = styled.button`
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0%;
-  margin-top: 20px;
-  transition: all 0.5s;
-
-  :hover {
-    border-radius: 30%;
-  }
-`
-const BotaoContratarNinja = styled.button`
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0;
 `
 
 const Texto = styled.p`
@@ -84,7 +60,6 @@ const Texto = styled.p`
 
 `
 
-
 const Imagem = styled.img `
 display:flex;
 justify-content: center;
@@ -92,6 +67,7 @@ align-items:center;
 flex-wrap:wrap;
 margin-top:100px;
 margin-bottom:50px;
+
 `
 
 export default class HomeLaks extends React.Component {

@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Roboto:wght@100&family=Zilla+Slab:wght@300&display=swap');
 
-
-
 * {
   margin: 0;
   bottom: 0;
@@ -10,8 +8,6 @@
 
 h1 {
   font-family: 'Zilla Slab', serif;
-
-
   font-size: 40px;
   display: flex;
   justify-content: center;
@@ -28,6 +24,10 @@ button {
   border: 3px dashed #FF2E63;
   font-weight: bold;
   font-size: medium;
+  transition: all 0.5s;
+  
+} :hover {
+  border-radius: 30%;
 }
 
 
@@ -48,17 +48,10 @@ input, select {
   
 }
 
-
-
-
 body {
   color: #08D9D6;
   font-size: large;
 }
-
-
-
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
