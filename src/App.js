@@ -1,10 +1,10 @@
 import React from 'react'
-// import TelaExibir from './Components/Tela'
 import styled from 'styled-components'
 import CadastroLaks from './Components/Cadastro/CadastroLaks'
 import HomeLaks from './Components/Home/HomeLaks'
 import { Carrinho } from './Components/Carrinho/Carrinho'
 import VerDetalhes from './Components/CardDetalhes/VerDetalhes'
+import TelaExibir from './Components/Tela'
 //Estilização
 const Footer = styled.footer`
   bottom: 0;
@@ -55,18 +55,15 @@ export default class App extends React.Component {
           />
         )
       case 'cadastro':
-        return <CadastroLaks irParaHome={this.irParaHome} irParaCarrinho={this.irParaCarrinho}/>
+        return <CadastroLaks irParaHome={this.irParaHome} irParaCarrinho={this.irParaCarrinho} />
       case 'carrinho':
-        return (
-          <Carrinho
-            calculaValorTotal={this.calculaValorTotal}
-            finalizarCompra={this.finalizarCompra}
-            excluirItemCarrinho={this.excluirItemCarrinho}
-          />
-        )
-
-      case "contratar" :
-          // return <TelaExibir/>
+        return <Carrinho
+          calculaValorTotal={this.calculaValorTotal}
+          finalizarCompra={this.finalizarCompra}
+          excluirItemCarrinho={this.excluirItemCarrinho}
+        />
+      case "contratar":
+        return <TelaExibir irParaPaginaDetalhes={this.irParaPaginaDetalhes} />
 
       case 'detalhes':
         return (
@@ -135,7 +132,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.telaAtual)
     return (
       <Div>
         <Headerzin>
@@ -145,9 +141,6 @@ export default class App extends React.Component {
             <button onClick={this.irParaCarrinho}>Carrinho</button>
           </CardButton>
         </Headerzin>
-
-       {/* <TelaExibir/> */}
-
         {this.trocarTela()}
         <Footer>
           <h3>Labeninja.com</h3>

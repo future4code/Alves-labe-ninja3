@@ -60,7 +60,7 @@ export default class VerDetalhes extends React.Component {
         <Itens>R${this.state.price},00</Itens>
         <Itens>
           {this.state.payment.map(item => {
-            return <li>{item}</li>
+            return <li key={item}>{item}</li>
           })}
         </Itens>
         <Itens>{this.state.date.split('T')[0]}</Itens>
@@ -68,3 +68,4 @@ export default class VerDetalhes extends React.Component {
     )
   }
 }
+

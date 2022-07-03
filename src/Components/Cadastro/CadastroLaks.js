@@ -21,7 +21,6 @@ export default class CadastroLaks extends React.Component {
       "cartãoCrédito",
       "cartãoDébito",
       "pix"
-
     ]
   }
 

@@ -105,8 +105,8 @@ export class FiltersComponets extends React.Component {
         })
         
         const trabalhosMap = arrayDeProdutosOrdenados.map((jobs) => {
-            return   <AllCards key ={jobs.id}>
-            <Card ><h2>{jobs.title}</h2><br />
+            return   <AllCards key={jobs.id}>
+            <Card><h2>{jobs.title}</h2><br />
                 <p>&#5125; {jobs.description}</p><br />
                 <p>&#5125;Preço: R${jobs.price}</p><br />
                 <p>Formas de Pagamento:{jobs.paymentMethods.map((item) => { return <div>{item}</div> })}</p><br />
@@ -123,8 +123,6 @@ export class FiltersComponets extends React.Component {
         return trabalhosMap
     }
     mudarTela=()=>{
-
-
     }
     
     render() {

@@ -25,11 +25,33 @@ const BoxCard = styled.div`
   flex-wrap: wrap;
 `
 
+const BotaoSerNinja = styled.button`
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin-left:0%;
+`
+
+const BotaoContratarNinja = styled.button`
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin-left:0;
+    transition: all 0.5s;
+`   
+
 const H2 = styled.h2`
   margin-top: 20px;
 `
+
 const H3 = styled.h3`
   margin-top: 10px;
+
+
+
+
 `
 const BotaoSerNinja = styled.button`
   margin-top: 20px;
@@ -58,21 +80,26 @@ const Texto = styled.p`
   margin-left: 200px;
   margin-right: 150px;
   margin-top: 80px;
+  line-height:2;
+
 `
 
-const Imagem = styled.img`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 100px;
-  margin-bottom: 50px;
+
+const Imagem = styled.img `
+display:flex;
+justify-content: center;
+align-items:center;
+flex-wrap:wrap;
+margin-top:100px;
+margin-bottom:50px;
 `
 
 export default class HomeLaks extends React.Component {
   render() {
     return (
       <Body>
+
+
         <h1> Venda mais com a gente!</h1>
         <Texto>
           {' '}
@@ -101,3 +128,4 @@ export default class HomeLaks extends React.Component {
     )
   }
 }
+
