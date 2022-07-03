@@ -28,7 +28,6 @@ export default class VerDetalhes extends React.Component {
     description: '',
     price: '',
     payment: [],
-
     date: ''
   }
   componentDidMount() {
