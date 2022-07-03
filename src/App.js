@@ -43,8 +43,7 @@ export default class App extends React.Component {
       case 'home':
         return <HomeLaks irParaCadastroLaks={this.irParaCadastroLaks}  irParaCards={this. irParaCards} />
       case 'cadastro':
-        return <CadastroLaks irParaHome={this.irParaHome} />
-
+        return <CadastroLaks irParaHome={this.irParaHome} irParaCarrinho={this.irParaCarrinho}/>
       case 'carrinho':
         return (
           <Carrinho
@@ -54,7 +53,7 @@ export default class App extends React.Component {
           />
         )
       case "contratar" :
-          return <TelaExibir/>
+          // return <TelaExibir/>
       case 'detalhes':
         return (
           <VerDetalhes
@@ -62,11 +61,9 @@ export default class App extends React.Component {
             irParaPaginaTela={this.irParaPaginaTela}
           />
         )
-
       default:
         return <div>Ops! Página não encontrada.</div>
     }
-    console.log(this.state.telaAtual)
   }
 
   irParaPaginaDetalhes = id => {
@@ -76,8 +73,6 @@ export default class App extends React.Component {
   //Dentro da tela atual abaixo vai o nome da tela da melissa
   irParaPaginaTela = () => {
     this.setState({ telaAtual: '', botaoDetalhes: '' })
-    
-
   }
 
   irParaHome = () => {
@@ -86,11 +81,9 @@ export default class App extends React.Component {
 
   irParaCadastroLaks = () => {
     this.setState({ telaAtual: 'cadastro' })
-    
   }
 
   //Funções do carrinho:
-
 
   irParaCarrinho = ()=>{
     this.setState({telaAtual: 'carrinho'})
@@ -100,7 +93,6 @@ export default class App extends React.Component {
     this.setState({
       telaAtual: 'contratar'
     })
-
   }
 
   calculaValorTotal = () => {
