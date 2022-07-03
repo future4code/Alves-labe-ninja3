@@ -51,7 +51,7 @@ export default class VerDetalhes extends React.Component {
       )
       .catch(err => console.log(err.response))
   }
-
+  // console.log(this.state)
   render() {
     return (
       <Detalhes>
