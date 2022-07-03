@@ -6,6 +6,18 @@ import HomeLaks from './Components/Home/HomeLaks'
 import { Carrinho } from './Components/Carrinho/Carrinho'
 import VerDetalhes from './Components/CardDetalhes/VerDetalhes'
 //Estilização
+const Footer = styled.footer`
+  bottom: 0;
+  text-align: center;
+  background-color: #08d9d6;
+  display: grid;
+  position: fixed;
+  font-family: 'Roboto Slab', serif;
+  width: 100%;
+  grid-template-rows: 1fr 1fr;
+  font-size: 15px;
+  padding-top: 5px;
+`
 const Div = styled.div`
   margin: 0px;
 `
@@ -13,7 +25,8 @@ const Headerzin = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  position: sticky;
+  top: 0;
   border-bottom: dotted;
 `
 const Titulo = styled.h1`
@@ -23,6 +36,7 @@ const CardButton = styled.div`
   gap: 20px;
   margin-right: 50px;
 `
+
 export default class App extends React.Component {
   state = {
     telaAtual: 'home',
@@ -129,6 +143,10 @@ export default class App extends React.Component {
           </CardButton>
         </Headerzin>
         {this.trocarTela()}
+        <Footer>
+          <h3>Labeninja.com</h3>
+          <p>&copy;Labeninja Marketplace - Página criada para fim estudantil</p>
+        </Footer>
       </Div>
     )
   }
