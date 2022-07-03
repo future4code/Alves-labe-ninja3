@@ -55,8 +55,7 @@ export default class App extends React.Component {
           />
         )
       case 'cadastro':
-        return <CadastroLaks irParaHome={this.irParaHome} />
-
+        return <CadastroLaks irParaHome={this.irParaHome} irParaCarrinho={this.irParaCarrinho}/>
       case 'carrinho':
         return (
           <Carrinho
@@ -65,8 +64,10 @@ export default class App extends React.Component {
             excluirItemCarrinho={this.excluirItemCarrinho}
           />
         )
-      case 'contratar':
-        return <TelaExibir irParaPaginaDetalhes={this.irParaPaginaDetalhes} />
+
+      case "contratar" :
+          // return <TelaExibir/>
+
       case 'detalhes':
         return (
           <VerDetalhes
@@ -74,7 +75,6 @@ export default class App extends React.Component {
             irParaPaginaTela={this.irParaPaginaTela}
           />
         )
-
       default:
         return <div>Ops! Página não encontrada.</div>
     }
@@ -101,11 +101,13 @@ export default class App extends React.Component {
 
   //Funções do carrinho:
 
+
   irParaCarrinho = () => {
     this.setState({ telaAtual: 'carrinho' })
   }
 
   irParaCards = () => {
+
     this.setState({
       telaAtual: 'contratar'
     })
