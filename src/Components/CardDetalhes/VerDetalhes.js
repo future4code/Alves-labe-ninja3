@@ -28,6 +28,7 @@ export default class VerDetalhes extends React.Component {
     description: '',
     price: '',
     payment: [],
+
     date: ''
   }
   componentDidMount() {
@@ -50,9 +51,12 @@ export default class VerDetalhes extends React.Component {
         })
       )
       .catch(err => console.log(err.response))
+
   }
-  // console.log(this.state)
+
+
   render() {
+
     return (
       <Detalhes>
         <Titulo>{this.state.title}</Titulo>
@@ -66,5 +70,6 @@ export default class VerDetalhes extends React.Component {
         <Itens>{this.state.date.split('T')[0]}</Itens>
       </Detalhes>
     )
+
   }
 }
