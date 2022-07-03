@@ -53,15 +53,6 @@ export default class VerDetalhes extends React.Component {
       .catch(err => console.log(err.response))
 
   }
-  // separaCard (this.setState({
-  //   title: res.data.title,
-  //   description: res.data.description,
-  //   price: res.data.price,
-  //   payment: res.data.paymentMethods,
-  //   date: res.data.dueDate,
-  //   taken: res.data.taken
-  // }))
-
   render() {
 
     return (
@@ -71,7 +62,7 @@ export default class VerDetalhes extends React.Component {
         <Itens>R${this.state.price},00</Itens>
         <Itens>
           {this.state.payment.map(item => {
-            return <li>{item}</li>
+            return <li key={item}>{item}</li>
           })}
         </Itens>
         <Itens>{this.state.date.split('T')[0]}</Itens>
@@ -80,3 +71,4 @@ export default class VerDetalhes extends React.Component {
 
   }
 }
+
