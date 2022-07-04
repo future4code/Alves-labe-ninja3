@@ -1,32 +1,80 @@
+import axios from 'axios'
 import React from 'react'
+import { styleCarrinho } from './styled'
+
+
 
 export class Carrinho extends React.Component {
 
-    componentDidMount(){
-      this.props.calculaValorTotal()
-      console.log(this.props.valorTotal)
-    }
-  
-    render() {
-      let valorTotal = this.props.valorTotalCarrinho
-      let carro = this.props.itens && this.props.itens.map((produto) => {
-        return (
-         
-        <div key={produto.id}>
-          <p>{produto.nome}</p>
-          <p>{produto.preco}</p>
-          <button onClick={() => this.props.excluirItemCarrinho(produto)}>Deletar</button>
-           </div>
-        )
-      })
-      
-      return (
-        <div>
-         {carro} || <h2>Carrinho vazio</h2>
-         <p>Valor total: {valorTotal} </p>
-          <button onClick={this.props.finalizarCompra}>Finalizar compra</button>
-          <button onClick={this.props.telaVerPlayList}>Continuar comprando</button>
-        </div>
-      )
+  state = {
+    carrinho: "",
+    valorTotal: " "
+  }
+
+  componentDidMount() {
+    this.todosOsJobs()
+  }
+
+  componentDidUpdate(prevState) {
+    if (prevState.carrinho !== this.state.carrinho) {
+      this.todosOsJobs()
     }
   }
+
+  todosOsJobs = () => {
+    let url = "https://labeninjas.herokuapp.com/jobs"
+    axios.get(url, {
+      headers: {
+        Authorization: "79840a71-ac32-416b-b3e2-220060bc0a97"
+      }
+    }).then((resposta) => {
+      this.setState({
+        carrinho: resposta.data.jobs.filter((job) => {
+          if (job.taken == true) { return job }
+        })
+      })
+    })
+      .catch((erro) => { console.log(erro.response.data) })
+  }
+
+  exluirItemCarrinho = (user) => {
+    let body = { "taken": false }
+    let id = user
+    let url = `https://labeninjas.herokuapp.com/jobs/${id}`
+    axios.post(url, body, {
+      headers: {
+        Authorization: "79840a71-ac32-416b-b3e2-220060bc0a97"
+      }
+    }).then((resposta) => { this.todosOsJobs() })
+      .catch((erro) => { alert(erro.response.data) })
+  }
+
+  finalizarCompra = ()=>{
+    this.setState({carrinho:"", valorTotal:""})
+  alert("Obrigado pela confiança, volte sempre!")
+  }
+
+  render() {
+    let listaCarrinho = this.state.carrinho && this.state.carrinho.map((job) => {
+      return (
+          <styleCarrinho key={job.id}>
+            <p>{job.title}</p>
+            <p>R${job.price},00</p>
+            <button onClick={() => this.exluirItemCarrinho(job.id)}>Deletar</button>
+          </styleCarrinho>
+      )
+    })
+
+    return (
+      <div>
+        {listaCarrinho || <h2>Carrinho vazio</h2>}
+        {this.state.valorTotal &&
+          <div>
+             {/* <p>Valor total: R$ {this.state.valorTotal}</p> */}
+            <button onClick={this.finalizarCompra}>Finalizar compra</button>
+            <button onClick={this.props.irParaHome}>Continuar comprando</button>
+          </div>}
+      </div>
+    )
+  }
+}

@@ -53,7 +53,8 @@ flex-wrap: wrap;
 export default class TelaExibir extends React.Component {
 
     state = {
-        jobs: []
+        jobs: [],
+        trueOufalse:""
     }
 
 
@@ -83,7 +84,19 @@ export default class TelaExibir extends React.Component {
 
     }
 
+    // Código gabriel => adicionar ao carrinho
 
+    adiocionarAoCArrinho=(user)=>{
+        let body = {"taken": true}
+        let id = user
+        let url = `https://labeninjas.herokuapp.com/jobs/${id}`
+        axios.post(url,body,{
+            headers:{
+                Authorization:"79840a71-ac32-416b-b3e2-220060bc0a97"
+            }
+        }).then((resposta)=>{alert("adicionado ao carrinho")})
+        .catch((erro)=>{alert("Ocorreu um erro inesperado, tente novamente mais tarde")})
+    }
 
     render() {
         const trabalhosMap = this.state.jobs.map((jobs) => {
@@ -98,7 +111,7 @@ export default class TelaExibir extends React.Component {
                         <p>&#5125;{jobs.dueDate.split('T')[0]}</p><br />
                         <DivBotton>
                         <BottonCard >Ver Detalhes</BottonCard>
-                        <BottonCard >Adicionar ao Carrinho</BottonCard>
+                        <BottonCard onClick={() => this.adiocionarAoCArrinho(jobs.id)}>Adicionar ao Carrinho</BottonCard>
                         </DivBotton>
                     </Card>
 

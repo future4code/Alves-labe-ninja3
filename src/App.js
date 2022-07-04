@@ -31,9 +31,6 @@ const CardButton = styled.div`
 export default class App extends React.Component {
   state = {
     telaAtual: 'home',
-    carrinho: [],
-    valorTotalCarrinho:'',
-
   }
 
   trocarTela = () => {
@@ -43,7 +40,7 @@ export default class App extends React.Component {
       case 'cadastro':
         return <CadastroLaks irParaHome={this.irParaHome} />
         case 'carrinho': 
-        return <Carrinho calculaValorTotal={this.calculaValorTotal} finalizarCompra={this.finalizarCompra}  excluirItemCarrinho ={this.excluirItemCarrinho}/>
+        return <Carrinho irParaHome={this.irParaHome}/>
 
       // mais 1 case com a pagina de contratação aqui antes do default
 
@@ -68,25 +65,25 @@ export default class App extends React.Component {
     this.setState({telaAtual: 'carrinho'})
   }
 
-  calculaValorTotal = ()=>{
-    this.setState({
-      valorTotalCarrinho: this.state.valorTotalCarrinho + (104 + (10 + 103) + (102 + 11))
-    })
-  }
+  // calculaValorTotal = ()=>{
+  //   this.setState({
+  //     valorTotalCarrinho: this.state.valorTotalCarrinho + (104 + (10 + 103) + (102 + 11))
+  //   })
+  // }
 
-  finalizarCompra =()=>{
-    this.setState({carrinho:"", valorTotalCarrinho:""})
-  }
+  // finalizarCompra =()=>{
+  //   this.setState({carrinho:"", valorTotalCarrinho:""})
+  // }
 
-  excluirItemCarrinho = (produtoParaRemover)=>{
-    const novoCarrinho = this.state.carrinho.filter(item=>{
-      if(item.id !== produtoParaRemover.id){
-        return item
-      }
-      // console.log("novo carrinho",novoCarrinho)
-    })
-    console.log("novo carrinho",novoCarrinho)
-}
+//   excluirItemCarrinho = (produtoParaRemover)=>{
+//     const novoCarrinho = this.state.carrinho.filter(item=>{
+//       if(item.id !== produtoParaRemover.id){
+//         return item
+//       }
+//       // console.log("novo carrinho",novoCarrinho)
+//     })
+//     console.log("novo carrinho",novoCarrinho)
+// }
 
   render() {
     return (
@@ -101,7 +98,7 @@ export default class App extends React.Component {
             <button onClick={this.irParaCarrinho}>Carrinho</button>
           </CardButton>
         </Headerzin>
- <FiltersComponets/>
+       <FiltersComponets/>
        <TelaExibir/>
 
         {this.trocarTela()}
