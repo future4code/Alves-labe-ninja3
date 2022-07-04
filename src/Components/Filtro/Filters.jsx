@@ -26,9 +26,9 @@ export class Filters extends React.Component {
                     onChange={this.props.pegaNome} />
             </label>
             <select onChange={this.props.pegaOrdem}>
+                <option valeu={"title"}>Nome</option>
                 <option value={"priceCR"}>Preço Crescente</option>
                 <option value={"priceDR"}>Preço Decrescente</option>
-                <option valeu={"title"}>Nome</option>
                 <option value={"dueDate"}>Prazo</option>
             </select>
         </div>
