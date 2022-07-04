@@ -19,7 +19,8 @@
 															Styled Components
 
 															🚀 Link Surge
-														(Adicionar Link do Surge)
+														crazy-cap.surge.sh
+
 
 															✒️ Autores
 															
